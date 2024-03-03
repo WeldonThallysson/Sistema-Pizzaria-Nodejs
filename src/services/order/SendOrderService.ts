@@ -13,9 +13,6 @@ class SendOrderService {
             data: {
                 draft: false
             }
-
-    
-
         })
     
         return order

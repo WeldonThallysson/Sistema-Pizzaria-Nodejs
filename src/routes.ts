@@ -14,10 +14,12 @@ import { AddItemController } from "./controllers/order/AddItemController";
 
 import uploadConfig from './config/multer' 
 import multer from "multer";
+
 import { RemoveItemController } from "./controllers/order/RemoveItemController";
 import { SendOrderController } from "./controllers/order/SendOrderController";
 import { DetailOrderController } from "./controllers/order/DetailsOrderService";
 import { FinishOrderController } from "./controllers/order/FinishOrderService";
+
 const router = Router();
 
 const upload = multer(uploadConfig.upload("./tmp"))
@@ -44,4 +46,5 @@ router.delete("/order/remove", isAuthenticated,new RemoveItemController().handle
 router.put("/order/send", isAuthenticated, new SendOrderController().handle) // Rota para enviar o pedido para o sistema Web(admin ou cozinha), onde ela altera o draft(rascunho) de true para false.
 router.get("/order/details",isAuthenticated, new DetailOrderController().handle)
 router.put("/order/finish", isAuthenticated, new FinishOrderController().handle)
+
 export {router}

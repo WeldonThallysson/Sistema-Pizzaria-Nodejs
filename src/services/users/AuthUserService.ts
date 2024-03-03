@@ -21,7 +21,7 @@ class AuthUserService{
         })
  
         if(!user){
-            throw new Error("Email já existe")
+            throw new Error("Email não existe")
         }
 
         //verificar se a senha que mandou está correta verificamos usando o compare pegando a senha do findEmail
@@ -38,7 +38,6 @@ class AuthUserService{
             {
                 name: user.name,
                 email: user.email,
-          
             },
             process.env.JWT_SECRET,
             {

@@ -1,5 +1,6 @@
 import prismaClient from "../../prisma"
 import { hash } from "bcryptjs"
+
 interface UserRequest{
    
     name: string,
@@ -8,9 +9,8 @@ interface UserRequest{
 
 }
 
-class CreateUserService{
+class CreateUserService {
     async execute({name,email,password}: UserRequest){
-
         //verifica se ele enviou um email
          if(!email){
             throw new Error("Email não foi enviado, envie um email !")
@@ -25,7 +25,8 @@ class CreateUserService{
          if(UserExists){
             throw new Error("Email já existe")
          } 
-          const passwordHash = await hash(password,8) //cripytografia de senha !
+
+          const passwordHash = await hash(password, 8) //cripytografia de senha !
       
           const user = await prismaClient.user.create({
             data: {
