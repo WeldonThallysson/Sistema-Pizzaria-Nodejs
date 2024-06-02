@@ -11,7 +11,7 @@ import { CreateOrderController } from "./controllers/order/createOrderController
 import { ListOrdersController } from './controllers/order/ListOrdersController'; 
 import { RemoveOrderController } from "./controllers/order/RemoveOrderController";
 import { AddItemController } from "./controllers/order/AddItemController";
-
+import {DeleteCategoryController} from './controllers/category/DeleteCategoryController'
 import uploadConfig from './config/multer' 
 import multer from "multer";
 
@@ -32,7 +32,7 @@ router.get("/me", isAuthenticated, new DetailUserController().handle) // rota pa
 
 router.post("/category", isAuthenticated, new CreateCategoryController().handle) //rota para cadastrar uma categoria nova através do sistema web.
 router.get("/category", isAuthenticated, new ListCategoryController().handle) // rota para buscar uma categoria para o App(garçon).
-
+router.delete("/category", isAuthenticated, new DeleteCategoryController().handle) // rota para deletar categoria
 // Rotas para os produtos
 router.post("/product", isAuthenticated,upload.single('file'), new CreateProductController().handle) //rota para cadastrar um novo produto através do sistema web(Cozinha ou admin).
 router.get("/product/category", isAuthenticated, new ListProductController().handle) // rota para buscar os produtos pela categoria para o App(garçon).

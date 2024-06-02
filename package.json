@@ -15,7 +15,8 @@
   },
   "name": "PizzariaBackend",
   "scripts": {
-    "dev": "ts-node-dev src/server.ts"
+    "dev": "ts-node-dev src/server.ts",
+    "start": "pm2 start src/server.ts --interpreter ts-node"
   },
   "version": "1.0.0",
   "main": "index.js",

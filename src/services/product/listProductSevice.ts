@@ -12,7 +12,6 @@ class ListProductService{
         const listProduct = await prismaClient.product.findMany({
             where: {
                category_id: category_id
-            
             }
         })
 
